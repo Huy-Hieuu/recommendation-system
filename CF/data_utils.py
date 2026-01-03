@@ -10,7 +10,11 @@ import pandas as pd
 import tensorflow as tf
 from typing import Tuple, Dict, Optional
 from sklearn.model_selection import train_test_split
+import kagglehub
 
+def download_data():
+    path = kagglehub.dataset_download("prajitdatta/movielens-100k-dataset")
+    return path
 
 def load_interaction_data(file_path: str) -> pd.DataFrame:
     """

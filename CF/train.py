@@ -10,19 +10,34 @@ import tensorflow as tf
 from tensorflow import keras
 from typing import Dict, Optional
 
-from collaborative_filtering import (
-    create_ncf_model,
-    create_mf_model,
-    compile_model
-)
-from data_utils import (
-    load_interaction_data,
-    encode_user_item_ids,
-    create_rating_column,
-    prepare_training_data,
-    split_train_test,
-    create_tf_dataset
-)
+try:
+    from .collaborative_filtering import (
+        create_ncf_model,
+        create_mf_model,
+        compile_model
+    )
+    from .data_utils import (
+        load_interaction_data,
+        encode_user_item_ids,
+        create_rating_column,
+        prepare_training_data,
+        split_train_test,
+        create_tf_dataset
+    )
+except ImportError:
+    from collaborative_filtering import (
+        create_ncf_model,
+        create_mf_model,
+        compile_model
+    )
+    from data_utils import (
+        load_interaction_data,
+        encode_user_item_ids,
+        create_rating_column,
+        prepare_training_data,
+        split_train_test,
+        create_tf_dataset
+    )
 
 
 def prepare_data_pipeline(
